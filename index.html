@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta aberta ao meu amor 💌</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Crimson+Text:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #ffe4ec, #ffb6c1, #ff8fab);
+      font-family: 'Crimson Text', serif;
+      overflow-x: hidden;
+      color: #3b0016;
+    }
+
+    .overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.25);
+      z-index: 0;
+    }
+
+    /* Tela inicial */
+    .start-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 182, 193, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+      text-align: center;
+      padding: 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .start-screen h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3em;
+      margin-bottom: 10px;
+      color: #7a002f;
+    }
+
+    .start-screen p {
+      font-size: 1.3em;
+      margin-bottom: 25px;
+    }
+
+    .start-screen button {
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 14px;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin: 10px;
+      box-shadow: 0px 5px 10px rgba(0,0,0,0.25);
+      transition: 0.3s;
+    }
+
+    .start-screen button:hover {
+      background: #e63950;
+      transform: scale(1.05);
+    }
+
+    /* Conteúdo */
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 50px 20px;
+      position: relative;
+      z-index: 2;
+      display: none;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 25px;
+      padding: 40px 30px;
+      box-shadow: 0px 0px 25px rgba(0,0,0,0.25);
+      backdrop-filter: blur(6px);
+      border: 2px solid rgba(255,255,255,0.4);
+      animation: appear 1.5s ease forwards;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3em;
+      text-align: center;
+      margin-bottom: 25px;
+      color: #7a002f;
+    }
+
+    .texto {
+      font-size: 1.35em;
+      line-height: 1.9em;
+      text-align: justify;
+      white-space: pre-line;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 1.2s;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .botoes {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    button, a.spotify {
+      font-family: 'Crimson Text', serif;
+      background: #ff4d6d;
+      color: white;
+      padding: 14px 22px;
+      border: none;
+      border-radius: 14px;
+      font-size: 1.1em;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+    }
+
+    button:hover, a.spotify:hover {
+      transform: scale(1.05);
+      background: #e63950;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1em;
+      opacity: 0.75;
+    }
+
+    /* Corações */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 18px;
+      animation: floatUp linear forwards;
+      opacity: 0.75;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+
+    /* Brilhinhos */
+    .sparkle {
+      position: fixed;
+      top: -10px;
+      font-size: 12px;
+      animation: sparkleFall linear forwards;
+      opacity: 0.7;
+      z-index: 1;
+    }
+
+    @keyframes sparkleFall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="overlay"></div>
+
+  <!-- TELA INICIAL -->
+  <div class="start-screen" id="startScreen">
+    <h2>Oi, meu amor 💗</h2>
+    <p>Você aceita ler uma cartinha especial?</p>
+
+    <button onclick="startLove()">SIM 😭❤️</button>
+    <button onclick="startLove()">claro que sim 🙄💘</button>
+  </div>
+
+  <!-- SITE -->
+  <div class="container" id="siteContent">
+    <div class="card">
+
+      <h1>Carta aberta ao meu amor 💌</h1>
+
+      <div class="botoes">
+        <button onclick="pauseMusic()">⏸ Pausar música</button>
+
+        <a class="spotify" target="_blank"
+           href="https://open.spotify.com/track/1urmwhtXPiakhcqvqUi3rp?si=M6p0b4aYT7OtsWyTShiUFw">
+          🎵 Abrir música no Spotify
+        </a>
+      </div>
+
+      <p class="texto">
+Há alguns dias venho pensando no que lhe dizer, no que lhe presentear, afinal, você merece todas as frases mais clichês, bobinhas e românticas, merece ter todos os presentes que eu queria lhe dar. Eu quero ser a pessoa com quem você vai estar junto por muitos outros aniversários, partilhar de muitas datas importantes porque essa se tornou uma pra mim. 11 de fevereiro, dia em que fui agraciada pela sua mãe dar a luz a garota mais incrível que conheci, que minhas ideias não tão normais bateram tão bem desse jeito. Nunca poderia deixar essa oportunidade passar, te deixar para outra pessoa, porque *você é você*. E eu não encontraria ninguém assim nunca, outra Letícia Aparecida. Eu te amo tanto. Sou tão feliz por ter você, por ser namorada de uma mineira que me fez repensar tanto sobre namoro a distância, que me cativou sem sequer um beijinho e continua me fazendo uma mulher apaixonada todos os dias.
+
+Pílula, saiba que você é tão especial do que as palavras que eu tento expressar esse sentimento, especial não no sentido de autista porque essa cota é minha, mas que você realmente é a mulher para quem eu quero contruir um futuro além do rpg, das nossas rotinas. Não brinco quando sinto saudade de você sem nunca ter te visto porque é um sentimento tão real que eu não consigo explicar. Eu quero que mesmo enfrentando o que for, nós possamos nos escolher todos os dias, quero ficar ao seu lado e te fazer gostar sim de aniversários porque o que eu mair queria era comemorar com você o dia todo em uma programação super ocupada, por mais que talvez você odiase KKKKKKKKK. Eu queria te dar tantas coisas, porque é o meu jeito de te amar assim a distância, o que eu faco não é nem metade do que eu de fato queria. Você me faz querer te amar muito mais todos os dias com esse seu jeitinho de bicuda, mulher brava e estressadinha. Seu abraço e beijo de aniversário vão chegar atrasados, daqui uns meses, mas eu prometo te entrega-los. Eu te amo, meu amor. Feliz aniversário.
+      </p>
+
+      <div class="footer">
+        Feito com amor, só pra você ❤️
+      </div>
+
+      <audio id="music" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+      </audio>
+
+    </div>
+  </div>
+
+  <script>
+    const music = document.getElementById("music");
+
+    function startLove() {
+      document.getElementById("startScreen").style.display = "none";
+      document.getElementById("siteContent").style.display = "block";
+
+      music.play().catch(() => {
+        alert("Para tocar a música dentro do site, coloque um arquivo chamado 'musica.mp3' na mesma pasta do index.html ❤️");
+      });
+    }
+
+    function pauseMusic() {
+      music.pause();
+    }
+
+    // Corações subindo
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 25 + 15) + "px";
+      heart.style.animationDuration = (Math.random() * 4 + 4) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    // Brilhinhos caindo
+    function createSparkle() {
+      const sparkle = document.createElement("div");
+      sparkle.classList.add("sparkle");
+      sparkle.innerHTML = "✨";
+
+      sparkle.style.left = Math.random() * 100 + "vw";
+      sparkle.style.fontSize = (Math.random() * 12 + 10) + "px";
+      sparkle.style.animationDuration = (Math.random() * 4 + 3) + "s";
+
+      document.body.appendChild(sparkle);
+
+      setTimeout(() => {
+        sparkle.remove();
+      }, 7000);
+    }
+
+    setInterval(createHeart, 500);
+    setInterval(createSparkle, 850);
+  </script>
+
+</body>
+</html>
